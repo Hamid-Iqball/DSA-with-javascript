@@ -9,11 +9,12 @@ function Anagram(first, second) {
   }
 
   let lookup = {};
+
   for (let i = 0; i < first.length; i++) {
     let letter = first[i];
-
     lookup[letter] ? (lookup[letter] += 1) : (lookup[letter] = 1);
   }
+  console.log(lookup);
 
   for (let i = 0; i < second.length; i++) {
     let letter2 = second[i];
@@ -26,4 +27,4 @@ function Anagram(first, second) {
   return true;
 }
 
-console.log(Anagram("hamid", "dimah"));
+console.log(Anagram("hamid2", "dimah1"));
