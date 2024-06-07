@@ -16,7 +16,7 @@ ___QuiCK Sort PseudoCode
 =>recursively call the pivot helper on the subarray of the left and the right side
 =>base case occurs when we consider a subarray with less than 2 elements
 
-*/
+
 
 //Swap
 function swap(arr, firstIndex, secondIndex) {
@@ -53,3 +53,6 @@ function QuicKSort(arr, left = 0, right = arr.length - 1) {
   return arr;
 }
 console.log(QuicKSort([4, 8, 2, 1, 5, 7, 6, 3]));
+
+
+*/

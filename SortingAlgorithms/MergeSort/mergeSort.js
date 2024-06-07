@@ -12,6 +12,7 @@ two step
 2. Sorting 
 
 
+*/
 
 // Step 1. Merging two sorted arrays
 function merge(arr1, arr2) {
@@ -45,7 +46,6 @@ function merge(arr1, arr2) {
   return result;
 }
 
-
 //Sorting Part
 function mergeSort(arr) {
   if (arr.length === 1) return arr;
@@ -57,7 +57,6 @@ function mergeSort(arr) {
 }
 
 console.log(mergeSort([3, 8, 2, 9, 4, 1]));
-*/
 
 // let arr = [9,4,5,1,2,10,11,44,33]
 
