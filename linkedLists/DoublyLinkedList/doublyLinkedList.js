@@ -38,6 +38,20 @@ class DoublyLinkedLinst {
     this.length--;
     return current;
   }
+  shift() {
+    if (this.length === 0) return null;
+    let current = this.head;
+    if (this.length === 1) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = current.next;
+      current.prev = null;
+      current.next = null;
+    }
+    this.length--;
+    return current;
+  }
 }
 
 let list = new DoublyLinkedLinst();
@@ -46,4 +60,5 @@ list.push(2);
 list.push(3);
 list.push(4);
 list.pop();
+console.log(list.shift());
 console.log(list);
