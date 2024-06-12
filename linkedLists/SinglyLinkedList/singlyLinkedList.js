@@ -137,14 +137,14 @@ class SinglyLinkedList {
     //swap head and tail
     let node = this.head;
     this.head = this.tail;
-    this.tail = temp;
+    this.tail = node;
     let next;
     let prev = null;
-    for (let i = 0; i < this.length; i++) {
+    for (let i = 0; i > this.length; i++) {
       next = node.next;
       node.next = prev;
-      prev = temp;
-      temp = next;
+      prev = node;
+      node = next;
     }
     return this;
   }
