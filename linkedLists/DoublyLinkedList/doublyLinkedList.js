@@ -110,5 +110,3 @@ class DoublyLinkedLinst {
     let foundNode = this.get(index - 1);
   }
 }
-
-console.log(twoSum([2, 5, 7, 11], 9));
