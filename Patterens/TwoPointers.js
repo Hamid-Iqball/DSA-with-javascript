@@ -27,7 +27,7 @@ function targetSum(arr , target){
 }
 
 
-targetSum([1,2,3,4,5,7,10], 11)
+
 
 
 
@@ -49,4 +49,23 @@ function reverse(arr){
     return arr;
    
    
+}
+
+// Is valid Palindrom 
+
+
+function isVlidPalindrom(str){
+    let left =0;
+    let right = str.length-1;
+    
+    while(left<right){
+        if(str[left]!==str[right]){
+            return false
+        }
+        
+        left++;
+        right--
+    }
+    
+    return true;
 }
