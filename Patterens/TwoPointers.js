@@ -1,7 +1,7 @@
 // Two pointers: We use two indices (pointers) to solve a problem efficiently instead of nested loops.
 
 
-//      P#:1; Target Sum:   Sorted array, and it will gives the pairs whoes sum is equal to target
+//P#:1; Target Sum:   Sorted array, and it will gives the pairs whoes sum is equal to target
 
 function targetSum(arr , target){
 
@@ -20,9 +20,6 @@ function targetSum(arr , target){
         }else{
             left++
         }
-
-
-
     }
 
     return result;
@@ -31,3 +28,25 @@ function targetSum(arr , target){
 
 
 targetSum([1,2,3,4,5,7,10], 11)
+
+
+
+// Reverse and array 
+function reverse(arr){
+    let left = 0;
+    let right = arr.length-1;
+
+
+    while(left<right){
+        [arr[right] , arr[left]] = [arr[left] , arr[right]]
+        
+        
+        left++;
+        right--
+    }
+      
+    
+    return arr;
+   
+   
+}
