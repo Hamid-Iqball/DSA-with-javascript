@@ -32,3 +32,52 @@ function Same(arr1, arr2) {
   return true;
 }
 console.log(Same([1, 2, 3], [1, 4, 9]));
+
+
+// Find Duplicate elements in an Array
+
+function duplicateElements(arr){
+    if(!arr.length){
+        return false
+    }
+    
+    let frequencyCoutnter ={}
+    let duplicate =[]
+    
+    for(let val of arr){
+        frequencyCoutnter[val] = (frequencyCoutnter[val] || 0) + 1
+    }
+    
+    
+    for (let key in frequencyCoutnter){
+       if(frequencyCoutnter[key]>1){
+           duplicate.push(Number(key))
+       }
+    }
+    
+    return duplicate
+    
+}
+
+
+
+//Anagram
+
+function isAnagram(str1, str2) {
+  if (str1.length !== str2.length) return false;
+
+  let counter = {};
+
+  for (let char of str1) {
+    counter[char] = (counter[char] || 0) + 1;
+  }
+
+  for (let char of str2) {
+    if (!counter[char]) {
+      return false;
+    }
+    counter[char]--;
+  }
+
+  return true;
+}
