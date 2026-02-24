@@ -3,6 +3,7 @@
 
 //P#:1; Target Sum:   Sorted array, and it will gives the pairs whoes sum is equal to target
 
+// ########### Opposite Dierction ###########
 function targetSum(arr , target){
 
     let left = 0;
@@ -21,9 +22,7 @@ function targetSum(arr , target){
             left++
         }
     }
-
     return result;
-
 }
 
 
@@ -69,3 +68,22 @@ function isVlidPalindrom(str){
     
     return true;
 }
+
+
+// ################### Same Direction ##########
+
+//array must be sorted 
+function moveZeros(arr){
+    let i = 0;
+  
+  for(let j=0; j<=arr.length-1; j++){
+      if(arr[j]!==0){
+          [arr[i], arr[j]] =[arr[j], arr[i]]
+          i++
+      }
+  }
+    
+      return arr
+   
+}
+
