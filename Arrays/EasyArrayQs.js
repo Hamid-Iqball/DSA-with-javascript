@@ -227,3 +227,27 @@ function maximum(arr){
  return Math.max(maxCount,count)
    
 }
+
+/*
+##########################################################################
+        7) Move all zeros to end
+##########################################################################
+*/
+
+
+function moveZeros(arr){
+
+if(arr.length===0) return
+let i=0;
+for(let j=0; j<arr.length; j++){
+    if(arr[j]!==0){
+        [arr[i], arr[j]] =[arr[j], arr[i]]
+        i++
+    }
+}
+
+return arr
+
+}
+
+
