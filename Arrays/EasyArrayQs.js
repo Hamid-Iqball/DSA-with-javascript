@@ -3,7 +3,7 @@
 
 /*
 ##########################################################################
-           Find The Second Largest Element in an Array
+        1   Find The Second Largest Element in an Array
 ##########################################################################
 */
 
@@ -33,7 +33,7 @@ function secondLargestElement(arr){
 
 /*
 ##########################################################################
-            Find The Third Largest Element in an Array
+        2    Find The Third Largest Element in an Array
 ##########################################################################
 */
 
@@ -68,7 +68,7 @@ return third
 
 /*
 ##########################################################################
-                     Reverse an Array (O(n), O(1))
+            3      Reverse an Array (O(n), O(1))
 ##########################################################################
 */
 
@@ -87,7 +87,7 @@ function reverseArray(arr){
 
 /*
 ##########################################################################
-                  Reverse an Array
+          4        Reverse an Array in groups
 ##########################################################################
 */
 
@@ -117,7 +117,7 @@ function rotateArray(arr,k){
 
 /*
 ##########################################################################
-                     Reverse Array in Groups(O(n), O(1))
+          5           Rotate an Array
 ##########################################################################
 */
 
@@ -147,3 +147,59 @@ function rotateArray(arr, d){
 
 }
 
+
+/*
+##########################################################################
+          6    Three Greate Candidates
+##########################################################################
+*/
+
+
+function triplateProducts(arr){
+
+ let n =arr.length
+ let maxA = Number.MIN_SAFE_INTEGER
+ let maxB = Number.MIN_SAFE_INTEGER
+ let maxC = Number.MIN_SAFE_INTEGER
+
+
+ let minA  =Number.MAX_SAFE_INTEGER
+ let minB  =Number.MAX_SAFE_INTEGER
+
+
+
+ for(let i=0; i<n; i++){
+    if(arr[i]>maxA){
+        maxC = maxB;
+        maxB = maxA;
+        maxA = arr[i]
+    }else if(arr[i]<maxA && arr[i]>maxB){
+        maxC= maxB
+        maxB = arr[i]
+    }else if(arr[i]<maxB && arr[i]>maxC){
+        maxC = arr[i]
+    }
+
+
+
+    if(arr[i]<minA){
+        minB = minA
+        minA = arr[i]
+    }else if(arr[i]<minB){
+        minB = arr[i]
+    }
+
+    console.log(maxA,maxB,maxC)
+
+ }
+
+
+ let product = Math.max(minA*minB*maxA, maxA*maxB*maxC)
+
+
+ return product;
+}
+
+
+
+console.log(triplateProducts([2,1,4,5,6]))
