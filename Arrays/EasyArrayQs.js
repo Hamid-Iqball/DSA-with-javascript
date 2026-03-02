@@ -150,7 +150,7 @@ function rotateArray(arr, d){
 
 /*
 ##########################################################################
-          6    Three Greate Candidates
+          6    Three Great Candidates
 ##########################################################################
 */
 
@@ -202,4 +202,28 @@ function triplateProducts(arr){
 
 
 
-console.log(triplateProducts([2,1,4,5,6]))
+/*
+##########################################################################
+        7) Maximum consecutive one’s (or zeros) in a binary array
+##########################################################################
+*/
+
+function maximum(arr){
+ 
+    let n = arr.length;
+    if(!n) return null
+    let count=1
+    let maxCount =0
+
+    for(let i=0; i<n; i++){
+        if(arr[i]===arr[i-1]){
+            count++
+        }else{
+           maxCount = Math.max(maxCount, count)
+            count=1
+        }
+
+    }
+ return Math.max(maxCount,count)
+   
+}
