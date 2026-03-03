@@ -250,4 +250,21 @@ return arr
 
 }
 
+/*
+##########################################################################
+        8) Wave form
+##########################################################################
+*/
+
+
+function waveForm(arr){
+
+    if(!arr.length) return null
+    let j=1
+    for(let i=0; i<arr.length ; i+=2){ // this i=i+2 is the tricky part
+        [arr[i], arr[i+1]] = [arr[i+1], arr[i]]
+    }
+   
+    return arr
+}
 
