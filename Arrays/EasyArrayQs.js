@@ -28,7 +28,6 @@ function secondLargestElement(arr){
     return secondLargest
 
 
-    return -1
 }
 
 /*
@@ -92,7 +91,7 @@ function reverseArray(arr){
 */
 
 
-function rotateArray(arr,k){
+function reverseAnArrayinGroups(arr,k){
    
 
     let n = arr.length
@@ -113,6 +112,7 @@ function rotateArray(arr,k){
 
 
 }
+
 
 
 /*
@@ -258,13 +258,224 @@ return arr
 
 
 function waveForm(arr){
-
+    
     if(!arr.length) return null
     let j=1
     for(let i=0; i<arr.length ; i+=2){ // this i=i+2 is the tricky part
         [arr[i], arr[i+1]] = [arr[i+1], arr[i]]
     }
-   
+    
     return arr
 }
 
+
+/*
+##########################################################################
+        9) Plus One
+##########################################################################
+*/
+
+function plusOne(arr){
+    
+    let n =arr.length
+    let carry = 1
+    
+    for(let i=n-1; i>=0; i--){
+        let sum = arr[i]+carry
+        arr[i] = sum%10
+        carry = Math.floor(sum/10)
+    }
+    
+    
+    if(carry>0){
+        arr.unshift(carry)
+    }
+    
+    return arr
+    
+}
+
+/*
+##########################################################################
+        10) Stock Buy and Sell (single Transaction)
+##########################################################################
+*/
+
+function maxProfit(arr){
+    
+    let n= arr.length
+    let minPrice =arr[0]
+    let res=0
+    
+    for(let i=0; i<n; i++){
+        minPrice = Math.min(arr[i], minPrice)
+        
+        
+        res = Math.max(res,arr[i]-minPrice)
+    }
+    return res
+}
+
+
+/*
+##########################################################################
+        10) Stock Buy and Sell (Multiple Transactions)
+##########################################################################
+*/
+
+function maxProfitMany(arr){
+    
+    let n = arr.length
+    let res=0
+    for(let i=1; i<n; i++){
+        if(arr[i]>arr[i-1]){ // we only count the upward counts and hence delete the previous one from it and adding it so it gives us the complete profit
+            res+=arr[i]-arr[i-1]
+        }
+    }
+    
+    return res
+}
+
+maxProfitMany([100, 180, 260, 310, 40, 535, 695])
+
+
+
+/*
+##########################################################################
+        10) Remove Duplicates from Sorted Array
+##########################################################################
+*/
+
+function removeDuplicate(arr){
+    
+    let n=arr.length;
+    if(n===0) return null
+    
+    let idx =1
+    for(let i=1; i<n; i++){
+        if(arr[i]!==arr[i-1]){
+            arr[idx] =arr[i]
+            idx++
+        }
+    }
+    
+    return arr.slice(0,idx)
+
+}
+
+removeDuplicate([1, 2, 2, 3, 4, 4, 4, 5, 5])
+
+
+/*
+##########################################################################
+        11) Array Leaders
+##########################################################################
+*/
+
+function Leader(arr){
+
+    let n =arr.length
+    let result =[]
+
+    for(let i=0; i<n; i++){
+      let j
+      for(j=i+1; j<n; j++){
+        if(arr[i]<arr[j])
+            break
+      }
+
+
+      if(j===n){
+        result.push(arr[i])
+      }
+
+    }
+
+    return result
+}
+
+
+
+function Leader2(arr){
+
+    let n=arr.length
+    let maxRight = arr[n-1]
+    let result =[]
+
+    result.push(maxRight)
+    for(let i=n-2; i>=0; i--){
+    
+        if(arr[i]>=maxRight){
+            maxRight = arr[i]
+            result.push(maxRight)
+         
+        }
+
+    }
+    result.reverse()
+
+    return result
+}
+
+
+
+
+
+//unsorted array
+function findTwoElement(arr){
+
+    let n = arr.length
+
+    let freq = new Array(n+1).fill(0)
+    let repeating =-1 
+    let missing  = -1
+
+
+    for(let i=0; i<n; i++){
+        freq[arr[i]]++
+    }
+
+    for(i=0; i<=n; i++){
+        if(freq[i]===0) { missing = i
+        }else if(freq[i]===2){
+            repeating =i
+        }
+        
+    }
+
+    return [missing, repeating]
+
+}
+
+
+function findtwoElements2(arr){
+    let n = arr.length
+   let repeating=-1
+    
+    for(let i=0; i<n; i++){
+        let val =  Math.abs(arr[i])
+
+
+        if(arr[val-1]>0){
+            arr[val-1] = -arr[val-1]
+        }else{
+            repeating = val
+        }
+    }
+
+
+
+    let missing = -1
+
+    for(let i=0; i<n; i++){
+        if(arr[i]>0){
+            missing = i+1;
+            break
+        }
+    }
+        
+    return [repeating, missing]
+        
+}
+
+console.log(findtwoElements2([3,4,1,5,5]))
