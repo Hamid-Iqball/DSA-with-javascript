@@ -92,27 +92,22 @@ function reverseArray(arr){
 
 
 function reverseAnArrayinGroups(arr,k){
-   
-
-    let n = arr.length
+   let n=arr.length
    for(let i=0; i<n; i+=k){
-
-    let left = i
-
-    let right = Math.min(i+k-1, n-1)
-   
+    let left = i;
+    let right = Math.min(k+i-1, n-1)
     while(left<right){
-        [arr[right], arr[left]]  =[arr[left] , arr[right]]
-        left++;
+        [arr[left], arr[right]] = [arr[right], arr[left]]
+        left++
         right--
     }
-    
+   }
+
+   return arr
+
 }
-    return arr
 
-
-}
-
+// console.log(reverseAnArrayinGroups([1,2,3,4,5,6],3))
 
 
 /*
@@ -189,7 +184,7 @@ function triplateProducts(arr){
         minB = arr[i]
     }
 
-    console.log(maxA,maxB,maxC)
+    
 
  }
 
@@ -281,19 +276,21 @@ function plusOne(arr){
     let carry = 1
     
     for(let i=n-1; i>=0; i--){
-        let sum = arr[i]+carry
-        arr[i] = sum%10
+        let sum = arr[i]+carry //add carry to the current digit
+        arr[i] = sum%10  //keep only the last digit (0-9)
         carry = Math.floor(sum/10)
     }
     
-    
+    //after the loop ends
     if(carry>0){
-        arr.unshift(carry)
+        arr.unshift(carry) // Add carry at the beginning
     }
     
     return arr
     
 }
+
+console.log(plusOne([9,9,9]))
 
 /*
 ##########################################################################
@@ -309,8 +306,6 @@ function maxProfit(arr){
     
     for(let i=0; i<n; i++){
         minPrice = Math.min(arr[i], minPrice)
-        
-        
         res = Math.max(res,arr[i]-minPrice)
     }
     return res
@@ -336,7 +331,7 @@ function maxProfitMany(arr){
     return res
 }
 
-maxProfitMany([100, 180, 260, 310, 40, 535, 695])
+console.log(maxProfitMany([100,180,210,340,50,400,503]))
 
 
 
@@ -351,7 +346,7 @@ function removeDuplicate(arr){
     let n=arr.length;
     if(n===0) return null
     
-    let idx =1
+    let idx =1   //pointer to the unique element goes
     for(let i=1; i<n; i++){
         if(arr[i]!==arr[i-1]){
             arr[idx] =arr[i]
@@ -449,7 +444,7 @@ function findTwoElement(arr){
 
 
 function findtwoElements2(arr){
-    let n = arr.length
+   let n = arr.length
    let repeating=-1
     
     for(let i=0; i<n; i++){
@@ -478,4 +473,3 @@ function findtwoElements2(arr){
         
 }
 
-console.log(findtwoElements2([3,4,1,5,5]))

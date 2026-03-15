@@ -28,6 +28,10 @@ class SinglyLinkedList {
   // POP
   pop() {
     if (!this.head) return undefined;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
     let temp = this.head;
     let pre = this.head;
     while (temp.next) {
@@ -37,10 +41,6 @@ class SinglyLinkedList {
     this.tail = pre;
     this.tail.next = null;
     this.length--;
-    if (this.length === 0) {
-      this.head = null;
-      this.tail = null;
-    }
     return temp;
   }
 
@@ -71,7 +71,7 @@ class SinglyLinkedList {
     return this;
   }
 
-  // Get
+  // Get, loop through the list until u found the index
   get(index) {
     if (index < 0 || index >= this.length) return null;
     let counter = 0;
@@ -140,7 +140,7 @@ class SinglyLinkedList {
     this.tail = node;
     let next;
     let prev = null;
-    for (let i = 0; i > this.length; i++) {
+    for (let i = 0; i < this.length; i++) {
       next = node.next;
       node.next = prev;
       prev = node;
